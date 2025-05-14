@@ -3,15 +3,17 @@ import BannerSection from "./Components/BannerSection";
 import EventCalnderSection from "./Components/EventCalnderSection";
 import LiveSection from "./Components/LiveSection";
 import Overall_Rating from "./Components/Overall_Rating";
+import Important_Dates from "./Components/Important_Dates";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
   return (
-    <div className="min-h-screen">
+    <main className="">
       <BannerSection />
       <EventCalnderSection />
       <LiveSection />
       <Overall_Rating />
-    </div>
+      <Important_Dates />
+    </main>
   );
 }

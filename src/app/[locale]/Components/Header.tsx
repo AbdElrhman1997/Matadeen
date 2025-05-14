@@ -6,254 +6,76 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from "react-icons/fa";
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const t = useTranslations("NavBar");
   const lang = useLocale();
-
   const [isOpen, setIsOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const [isLibraryOpen, setIsLibraryOpen] = useState(false);
-  const [isMembershipsOpen, setIsMembershipsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
     <header
       className="bg-[#008062] py-7 z-50"
       dir={lang == "en" ? "ltr" : "rtl"}
     >
+      {/* Desktop Menu */}
       <div className="container mx-auto flex items-center justify-between">
-        <nav
-          className="flex justify-between items-center"
-          dir={lang === "en" ? "ltr" : "rtl"}
-        >
-          <div className="relative w-44">
-            <Link href={`/${lang}`}>
-              <Image
-                src="/images/logos/logo.svg"
-                alt="Logo"
-                height={70}
-                width={160}
-              />
-            </Link>
-          </div>
-          {/* Mobile Menu Button */}
-          <button className="lg:hidden p-4" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? (
-              <FaTimes className="text-2xl text-[#008062]" />
-            ) : (
-              <FaBars className="text-2xl text-gray-700" />
-            )}
-          </button>
-          <div className="container mx-auto md:px-20 relative">
-            {/* Desktop Menu */}
-            <ul className="hidden lg:flex space-x-6 text-white items-center justify-center font-medium">
-              <li>
-                <Link href={`/${lang}`} className="hover:text-primary">
-                  {t("about_us")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}`} className="hover:text-primary">
-                  {t("services")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}`} className="hover:text-primary">
-                  {t("services")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}`} className="hover:text-primary">
-                  {t("competitions")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}`} className="hover:text-primary">
-                  {t("live")}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}`} className="hover:text-primary">
-                  {t("call_us")}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Mobile Menu */}
-          {isOpen && (
-            <ul className="lg:hidden bg-white border-t p-4 space-y-3">
-              <li>
-                <Link
-                  href={`/${lang}`}
-                  className="block py-2 text-gray-700"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("home")}
-                </Link>
-              </li>
-              <li>
-                <div
-                  className="flex justify-between items-center py-2 cursor-pointer text-gray-700"
-                  onClick={() => setIsAboutOpen(!isAboutOpen)}
-                >
-                  <span>{t("about")}</span>
-                  {isAboutOpen ? (
-                    <FaChevronUp className="text-gray-500" />
-                  ) : (
-                    <FaChevronDown className="text-gray-500" />
-                  )}
-                </div>
-                {isAboutOpen && (
-                  <ul className="pl-4 space-y-2">
-                    <li>
-                      <Link
-                        href={`/${lang}/about`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("about_orgnization")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href={`/${lang}/lists`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("lists")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href={`/${lang}/structure`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("structure")}
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
-              <li>
-                <div
-                  className="flex justify-between items-center py-2 cursor-pointer text-gray-700"
-                  onClick={() => setIsLibraryOpen(!isLibraryOpen)}
-                >
-                  <span>{t("library")}</span>
-                  {isLibraryOpen ? (
-                    <FaChevronUp className="text-gray-500" />
-                  ) : (
-                    <FaChevronDown className="text-gray-500" />
-                  )}
-                </div>
-                {isLibraryOpen && (
-                  <ul className="pl-4 space-y-2">
-                    <li>
-                      <Link
-                        href={`/${lang}/data_library`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("data_library")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href={`/${lang}/video_library`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("video_library")}
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
-              <li>
-                <div
-                  className="flex justify-between items-center py-2 cursor-pointer text-gray-700"
-                  onClick={() => setIsMembershipsOpen(!isMembershipsOpen)}
-                >
-                  <span>{t("memberships")}</span>
-                  {isMembershipsOpen ? (
-                    <FaChevronUp className="text-gray-500" />
-                  ) : (
-                    <FaChevronDown className="text-gray-500" />
-                  )}
-                </div>
-                {isMembershipsOpen && (
-                  <ul className="pl-4 space-y-2">
-                    <li>
-                      <Link
-                        href={`/${lang}/institutions`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("institutions")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href={`/${lang}/individuals`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("individuals")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href={`/${lang}/volunteers`}
-                        className="block py-2 text-gray-600"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("volunteers")}
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
-              <li>
-                <span
-                  onClick={(e) => e.preventDefault()}
-                  className="block py-2 text-gray-400 cursor-not-allowed"
-                >
-                  {t("training")}
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={(e) => e.preventDefault()}
-                  className="block py-2 text-gray-400 cursor-not-allowed"
-                >
-                  {t("jobs")}
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={(e) => e.preventDefault()}
-                  className="block py-2 text-gray-400 cursor-not-allowed"
-                >
-                  {t("actions")}
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={(e) => e.preventDefault()}
-                  className="block py-2 text-gray-400 cursor-not-allowed"
-                >
-                  {t("ads")}
-                </span>
-              </li>
-            </ul>
-          )}
-        </nav>
-        <div className="flex gap-2 items-center">
-          {/* <LanguageSwitcher /> */}
+        <div className="hidden lg:block relative w-44">
+          <Link href={`/${lang}`}>
+            <Image
+              src="/images/logos/logo.svg"
+              alt="Logo"
+              height={70}
+              width={160}
+            />
+          </Link>
         </div>
+
+        <nav className="container mx-auto md:px-20 relative">
+          <ul className="hidden lg:flex space-x-6 text-white items-center justify-center font-medium">
+            <li>
+              <Link href={`/${lang}`} className="hover:text-primary">
+                {t("about_us")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}`} className="hover:text-primary">
+                {t("services")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}`} className="hover:text-primary">
+                {t("services")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}`} className="hover:text-primary">
+                {t("competitions")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}`} className="hover:text-primary">
+                {t("live")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}`} className="hover:text-primary">
+                {t("call_us")}
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         <div className="flex gap-2 items-center">
-          {/* <LanguageSwitcher /> */}
           <div className="lg:flex hidden gap-[10px] mx-6">
             <div className="relative w-5 h-5  grid place-items-center rounded-full">
               <Image
@@ -279,6 +101,67 @@ const Header = () => {
             <span className="text-white">{t("my_account")}</span>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className="container mx-auto">
+        <div className="lg:hidden flex justify-between items-center w-full">
+          <div className="relative w-44">
+            <Link href={`/${lang}`}>
+              <Image
+                src="/images/logos/logo.svg"
+                alt="Logo"
+                height={70}
+                width={160}
+              />
+            </Link>
+          </div>
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-4 cursor-pointer"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? (
+              <button onClick={() => setIsOpen(false)}>
+                <FaTimes className="text-2xl text-white" />
+              </button>
+            ) : (
+              <FaBars className="text-2xl text-white" />
+            )}
+          </button>
+        </div>
+
+        {isOpen && (
+          <nav
+            className={`lg:hidden fixed top-[112px] inset-x-0 z-50 bg-white max-h-[calc(100vh-112px)] overflow-y-auto transition-all duration-300 ease-in-out shadow-xl border-t border-gray-100 rounded-b-2xl ${
+              isOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0 pointer-events-none"
+            }`}
+          >
+            <ul className="p-6 space-y-8 py-10">
+              {[
+                { label: "عن ميادين", href: `/${lang}` },
+                { label: "الخدمات", href: `/${lang}` },
+                { label: "المسابقات", href: `/${lang}` },
+                { label: "البث المباشر", href: `/${lang}` },
+                { label: "اتصل بنا", href: `/${lang}` },
+                { label: "بحث", href: `/${lang}` },
+                { label: "حسابي", href: `/${lang}` },
+              ].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    className="block text-[#008062] font-semibold text-2xl text-center hover:text-[#008062]/80 transform transition-transform hover:scale-105"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </div>
     </header>
   );
