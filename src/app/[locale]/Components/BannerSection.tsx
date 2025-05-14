@@ -9,7 +9,7 @@ const BannerSection = () => {
 
   return (
     <div className="w-full relative" dir={lang == "en" ? "ltr" : "rtl"}>
-      <div className="relative w-full min-h-screen md:min-h-[80vh] lg:min-h-[770px] 2xl:h-[70vh]">
+      <div className="relative w-full min-h-[90vh] md:min-h-[70vh] lg:min-h-[770px] 2xl:h-[70vh]">
         <Image
           src="/images/home_page/main-img.svg"
           alt="Banner"
@@ -24,7 +24,7 @@ const BannerSection = () => {
           <p className="text-lg lg:text-[40px] md:text-[20px] lg:leading-[89px] md:leading-[44px] sm:mt-0 mt-5">
             العنوان الفرعي هنا او التفاصيل
           </p>
-          <button className="md:mt-6 mt-4 w-[141px] flex items-center h-[36px] bg-[#FFBF00] text-[#000E5A] px-4 py-2 rounded-[28px] sm:my-0 my-6">
+          <button className="md:mt-6 mt-8 w-[141px] flex items-center h-[36px] bg-[#FFBF00] text-[#000E5A] px-4 py-2 rounded-[28px] sm:my-0 my-6">
             <span className="bold">اذهب إلى</span>
             <div className="relative w-5 ms-3">
               <Image
@@ -36,7 +36,7 @@ const BannerSection = () => {
             </div>
           </button>
           <div className=" lg:mt-28 md:mt-10 left-0 right-0 flex flex-wrap justify-between text-white gap-4">
-            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[23%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px] text-start flex flex-col justify-center">
+            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[24%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px] text-start flex flex-col justify-center">
               <p className="text-[#F8F8F8] lg:text-[21px] md:text-[16px]">
                 20/3/2025
               </p>
@@ -47,7 +47,7 @@ const BannerSection = () => {
                 العنوان الفرعي هنا او التفاصيل
               </p>
             </div>
-            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[23%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px]  text-start flex flex-col justify-center">
+            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[24%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px]  text-start flex flex-col justify-center">
               <p className="text-[#F8F8F8] lg:text-[21px] md:text-[16px]">
                 20/3/2025
               </p>
@@ -58,7 +58,7 @@ const BannerSection = () => {
                 العنوان الفرعي هنا او التفاصيل
               </p>
             </div>
-            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[23%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px] text-start flex flex-col justify-center">
+            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[24%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px] text-start flex flex-col justify-center">
               <p className="text-[#F8F8F8] lg:text-[21px] md:text-[16px]">
                 20/3/2025
               </p>
@@ -69,7 +69,7 @@ const BannerSection = () => {
                 العنوان الفرعي هنا او التفاصيل
               </p>
             </div>
-            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[23%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px] text-start flex flex-col justify-center">
+            <div className="bg-[#008062]/55 lg:px-6 md:px-3 p-3  lg:w-[24%] md:w-[45%] w-[90%]  lg:min-h-[187px] md:min-h-[130px] text-start flex flex-col justify-center">
               <p className="text-[#F8F8F8] lg:text-[21px] md:text-[16px]">
                 20/3/2025
               </p>

@@ -146,7 +146,7 @@ const EventCalnderSection = () => {
       </h2>
       <div className="flex lg:mt-8 md:mt-14 mt-10">
         <div className="lg:-translate-y-[19px] md:-translate-y-[47px] -translate-y-[35.5px]">
-          <div className="lg:pe-36 md:pe-16 pe-7">
+          <div className="lg:pe-32 md:pe-16 pe-7">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center">
                 <span className="mr-2 text-black font-semibold mt-3">

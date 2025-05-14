@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { useLocale } from "next-intl";
 import { FaArrowLeft } from "react-icons/fa";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -43,7 +42,7 @@ const LiveSection = () => {
           </div>
 
           {/* بث مباشر button, stays at the end */}
-          <div className="ml-4 flex-shrink-0 rounded-full bg-[#FF0000] text-lg text-white py-2 px-5 whitespace-nowrap">
+          <div className=" flex-shrink-0 rounded-full bg-[#FF0000] text-lg text-white py-2 px-5 whitespace-nowrap">
             بث مباشر
           </div>
         </div>
@@ -58,7 +57,7 @@ const LiveSection = () => {
               Your browser does not support the video tag.
             </video>
           </div>
-          <div className="overflow-y-scroll lg:max-h-[400px] max-h-[300px] live-section-bar pe-6 mt-8">
+          <div className="overflow-y-scroll lg:max-h-[400px] max-h-[300px] live-section-bar lg:mt-0 mt-8 lg:pl-6 lg:ps-0 md:pl-20 md:ps-20 pl-6">
             <div className="flex items-center justify-center lg:ms-12 bg-[#5A9949] rounded-full p-4 border-[3px] border-white">
               <div className="relative lg:h-20 h-14 pe-2  bg-[#A2C77C] w-full rounded-full flex items-center justify-between text-white border-[2px] border-white">
                 <TiArrowSortedDown className="text-black -rotate-90 text-5xl" />
