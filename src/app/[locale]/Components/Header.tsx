@@ -9,12 +9,6 @@ const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const t = useTranslations("NavBar");
   const lang = useLocale();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("auth_token");
-      setIsAuthenticated(!!token);
-    }
-  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);

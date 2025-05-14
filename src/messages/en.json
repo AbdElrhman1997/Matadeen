@@ -2,5 +2,13 @@
   "HomePage": {},
 
   "Profile": {},
-  "NavBar": {}
+  "NavBar": {
+    "about_us": "About Mayadeen",
+    "services": "Services",
+    "competitions": "Competitions",
+    "live": "Live Stream",
+    "call_us": "Contact Us",
+    "search": "Search...",
+    "my_account": "My Account"
+  }
 }

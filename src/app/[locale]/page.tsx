@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import BannerSection from "./Components/BannerSection";
-import ServicesSection from "./Components/ServicesSection";
 import EventCalnderSection from "./Components/EventCalnderSection";
 import LiveSection from "./Components/LiveSection";
 
