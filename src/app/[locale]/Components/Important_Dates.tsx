@@ -8,7 +8,7 @@ const Important_Dates = () => {
   return (
     <section className="lg:pt-8 pt-12 pb-20" dir={lang == "en" ? "ltr" : "rtl"}>
       <div className="container mx-auto">
-        <div className="w-full rounded-lg overflow-x-auto">
+        <div className="w-full rounded-lg overflow-x-auto scrollbar-hide">
           <p className="text-[#177245] text-[34px] mb-2 font-medium">49 يوم</p>
           <table className="w-full lg:min-w-full min-w-[1600px] text-start border-separate border-spacing-y-2 font-semibold whitespace-nowrap">
             <tbody>
@@ -94,7 +94,7 @@ const Important_Dates = () => {
             </tbody>
           </table>
         </div>
-        <div className="w-full rounded-lg overflow-x-auto">
+        <div className="w-full rounded-lg overflow-x-auto scrollbar-hide">
           <p className="text-[#177245] text-[34px] mb-2 font-medium">
             249 يوم - 2011
           </p>
@@ -182,7 +182,7 @@ const Important_Dates = () => {
             </tbody>
           </table>
         </div>
-        <div className="w-full rounded-lg overflow-x-auto">
+        <div className="w-full rounded-lg overflow-x-auto scrollbar-hide">
           <p className="text-[#177245] text-[34px] mb-2 font-medium">49 يوم</p>
           <table className="w-full lg:min-w-full min-w-[1600px] text-start border-separate border-spacing-y-2 font-semibold whitespace-nowrap">
             <tbody>
@@ -268,7 +268,7 @@ const Important_Dates = () => {
             </tbody>
           </table>
         </div>
-        <div className="w-full rounded-lg overflow-x-auto overflow-y-hidden mt-8">
+        <div className="w-full rounded-lg overflow-x-auto overflow-y-hidden mt-8 scrollbar-hide">
           <table className="w-full lg:min-w-full text-white min-w-[700px] text-start border-collapse whitespace-nowrap text-[14px]">
             <tbody>
               <tr className="bg-[#008062] text-start">
