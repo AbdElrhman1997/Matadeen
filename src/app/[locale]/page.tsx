@@ -2,8 +2,8 @@ import { useTranslations } from "next-intl";
 import BannerSection from "./Components/BannerSection";
 import EventCalnderSection from "./Components/EventCalnderSection";
 import LiveSection from "./Components/LiveSection";
-import Overall_Rating from "./Components/Overall_Rating";
-import Important_Dates from "./Components/Important_Dates";
+import Important_Dates from "./Components/Important_Dates/Important_Dates";
+import Overall_Rating from "./Components/Overall_Rating/Overall_Rating";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");

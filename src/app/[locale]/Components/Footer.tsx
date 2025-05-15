@@ -1,18 +1,57 @@
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 import { FaSnapchat, FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 export default function Footer() {
   const lang = useLocale();
 
+  const socialLinks = [
+    {
+      href: "https://www.snapchat.com",
+      icon: <FaSnapchat />,
+      color: "hover:text-yellow-400",
+    },
+    {
+      href: "https://www.instagram.com",
+      icon: <FaInstagram />,
+      color: "hover:text-pink-500",
+    },
+    {
+      href: "https://x.com",
+      icon: <FaXTwitter />,
+      color: "hover:text-gray-400",
+    },
+    {
+      href: "https://www.tiktok.com",
+      icon: <FaTiktok />,
+      color: "hover:text-white",
+    },
+  ];
+
+  const navLinks = [
+    { href: "/about", label: "عن ميادين" },
+    { href: "/services", label: "الخدمات" },
+    { href: "/competitions", label: "المسابقات" },
+    { href: "/live", label: "البث المباشر" },
+    { href: "/contact", label: "اتصل بنا" },
+  ];
+
+  const policyLinks = [
+    { href: "/privacy", label: "سياسة الخصوصية" },
+    { href: "/terms", label: "أحكام وشروط" },
+    { href: "/charter", label: "ميثاق العملاء" },
+    { href: "/tools", label: "أدوات الموقع" },
+  ];
+
   return (
     <footer
-      className="bg-[#1E1E1E] text-white text-sm "
+      className="bg-[#1E1E1E] text-white text-sm"
       dir={lang === "en" ? "ltr" : "rtl"}
     >
       {/* Top Section */}
-      <div className=" py-10 px-4 grid grid-cols-1 lg:grid-cols-3 items-center md:gap-10 gap-6 container mx-auto">
+      <div className="py-10 px-4 grid grid-cols-1 lg:grid-cols-3 items-center md:gap-10 gap-6 container mx-auto">
         {/* Logo & Social */}
         <div className="flex flex-col items-center lg:items-start gap-4 lg:col-span-2">
           <div className="lg:flex mt-8">
@@ -26,70 +65,31 @@ export default function Footer() {
                 />
               </Link>
             </div>
-            {/* Social Links */}
             <div className="flex justify-center items-center flex-wrap gap-5 text-2xl text-center md:text-right lg:ms-8 lg:mt-0 mt-7">
-              <Link
-                href="https://www.snapchat.com"
-                target="_blank"
-                className="hover:text-yellow-400 transition-colors"
-              >
-                <FaSnapchat />
-              </Link>
-              <Link
-                href="https://www.instagram.com"
-                target="_blank"
-                className="hover:text-pink-500 transition-colors"
-              >
-                <FaInstagram />
-              </Link>
-              <Link
-                href="https://x.com"
-                target="_blank"
-                className="hover:text-gray-400 transition-colors"
-              >
-                <FaXTwitter />
-              </Link>
-              <Link
-                href="https://www.tiktok.com"
-                target="_blank"
-                className="hover:text-white transition-colors"
-              >
-                <FaTiktok />
-              </Link>
+              {socialLinks.map(({ href, icon, color }, i) => (
+                <Link
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  className={`${color} transition-colors`}
+                >
+                  {icon}
+                </Link>
+              ))}
             </div>
           </div>
+
           {/* Navigation Links */}
           <div className="flex justify-center flex-wrap md:gap-x-12 gap-6 text-[20px] text-center md:text-right lg:mt-6 mt-2 mb-4">
-            <Link
-              href="/about"
-              className="hover:text-[#008062] transition-colors"
-            >
-              عن ميادين
-            </Link>
-            <Link
-              href="/services"
-              className="hover:text-[#008062] transition-colors"
-            >
-              الخدمات
-            </Link>
-            <Link
-              href="/competitions"
-              className="hover:text-[#008062] transition-colors"
-            >
-              المسابقات
-            </Link>
-            <Link
-              href="/live"
-              className="hover:text-[#008062] transition-colors"
-            >
-              البث المباشر
-            </Link>
-            <Link
-              href="/contact"
-              className="hover:text-[#008062] transition-colors"
-            >
-              اتصل بنا
-            </Link>
+            {navLinks.map(({ href, label }, i) => (
+              <Link
+                key={i}
+                href={href}
+                className="hover:text-[var(--main)] transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -103,7 +103,7 @@ export default function Footer() {
               placeholder="name@domain.com"
               className="bg-[#E3E3E3] px-4 py-2 rounded-md text-sm w-full sm:w-64 text-black placeholder-gray-400 h-11 outline-none"
             />
-            <button className="bg-[#008062] hover:bg-[#008062]/70 transition-colors text-white px-9 py-2 rounded-md text-sm h-11">
+            <button className="bg-[var(--main)] hover:bg-[var(--main)]/70 transition-colors text-white px-9 py-2 rounded-md text-sm h-11">
               اشترك
             </button>
           </form>
@@ -115,21 +115,14 @@ export default function Footer() {
         <div className="py-5 text-xs flex flex-col gap-2 md:flex-row justify-between items-center container mx-auto">
           <p className="sm:mt-2 md:mt-0 text-center">جميع الحقوق محفوظة</p>
           <div className="text-center md:text-right space-x-2">
-            <Link href="/privacy" className="hover:text-white">
-              سياسة الخصوصية
-            </Link>
-            <span>|</span>
-            <Link href="/terms" className="hover:text-white">
-              أحكام وشروط
-            </Link>
-            <span>|</span>
-            <Link href="/charter" className="hover:text-white">
-              ميثاق العملاء
-            </Link>
-            <span>|</span>
-            <Link href="/tools" className="hover:text-white">
-              أدوات الموقع
-            </Link>
+            {policyLinks.map(({ href, label }, i) => (
+              <Fragment key={i}>
+                <Link href={href} className="hover:text-white">
+                  {label}
+                </Link>
+                {i < policyLinks.length - 1 && <span>|</span>}
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>
