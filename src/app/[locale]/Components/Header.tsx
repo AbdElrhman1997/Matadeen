@@ -131,37 +131,33 @@ const Header = () => {
           </button>
         </div>
 
-        {isOpen && (
-          <nav
-            className={`lg:hidden fixed top-[112px] inset-x-0 z-50 bg-white max-h-[calc(100vh-112px)] overflow-y-auto transition-all duration-300 ease-in-out shadow-xl border-t border-gray-100 rounded-b-2xl ${
-              isOpen
-                ? "translate-y-0 opacity-100"
-                : "translate-y-4 opacity-0 pointer-events-none"
-            }`}
-          >
-            <ul className="p-6 space-y-8 py-10">
-              {[
-                { label: "عن ميادين", href: `/${lang}` },
-                { label: "الخدمات", href: `/${lang}` },
-                { label: "المسابقات", href: `/${lang}` },
-                { label: "البث المباشر", href: `/${lang}` },
-                { label: "اتصل بنا", href: `/${lang}` },
-                { label: "بحث", href: `/${lang}` },
-                { label: "حسابي", href: `/${lang}` },
-              ].map((item, index) => (
-                <li key={index}>
-                  <Link
-                    href={item.href}
-                    className="block text-[#008062] font-semibold text-2xl text-center hover:text-[#008062]/80 transform transition-transform hover:scale-105"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        <nav
+          className={`lg:hidden fixed top-[112px] h-[calc(100%-112px)] right-0 inset-x-0 z-50 bg-white max-h-[calc(100vh-112px)] overflow-y-auto transition-all duration-300 ease-in-out shadow-xl border-t border-gray-100 ${
+            isOpen ? "clip-path-open" : "clip-path-closed"
+          }`}
+        >
+          <ul className="p-6 space-y-10 py-10">
+            {[
+              { label: "عن ميادين", href: `/${lang}` },
+              { label: "الخدمات", href: `/${lang}` },
+              { label: "المسابقات", href: `/${lang}` },
+              { label: "البث المباشر", href: `/${lang}` },
+              { label: "اتصل بنا", href: `/${lang}` },
+              { label: "بحث", href: `/${lang}` },
+              { label: "حسابي", href: `/${lang}` },
+            ].map((item, index) => (
+              <li key={index}>
+                <Link
+                  href={item.href}
+                  className="block text-[#008062] font-semibold text-2xl text-center hover:text-[#008062]/80 transform transition-transform hover:scale-105"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   );

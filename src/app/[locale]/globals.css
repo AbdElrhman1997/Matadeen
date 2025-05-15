@@ -95,13 +95,10 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-.clip-custom {
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  transition: clip-path 0.3s ease-in-out, opacity 0.3s ease;
-  opacity: 0; /* يبدأ بالخفاء */
+.clip-path-closed {
+  clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 0);
 }
 
-.clip-custom.open {
-  opacity: 1; /* يظهر عند التفعيل */
-  clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+.clip-path-open {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }

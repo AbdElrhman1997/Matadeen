@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 
 const EventCalnderSection = () => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -55,23 +56,23 @@ const EventCalnderSection = () => {
         type: "yellow",
       },
     ],
-    "2025-05-21": [
+    "2025-05-13": [
       {
         title: "حدث السباق الأول",
         time: "09:00 AM - 11:00 AM",
-        date: "21 مايو 2025",
+        date: "13 مايو 2025",
         type: "green",
       },
       {
         title: "حدث السباق الثاني",
         time: "02:00 PM - 04:00 PM",
-        date: "21 مايو 2025",
+        date: "13 مايو 2025",
         type: "yellow",
       },
       {
         title: "حدث السباق الثالث",
         time: "01:00 PM - 05:00 PM",
-        date: "21 مايو 2025",
+        date: "13 مايو 2025",
         type: "yellow",
       },
     ],
@@ -276,7 +277,7 @@ const EventCalnderSection = () => {
                 </tbody>
               </table>
               {modalOpened && selectedEvent && (
-                <div className="absolute z-40 top-4/5 left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-xl w-80 text-right p-4 border border-gray-100">
+                <div className="absolute z-40 top-4/5 left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-xl w-80 text-right p-4 border-2 border-gray-200">
                   <button
                     className="absolute top-1 left-3 text-black text-2xl cursor-pointer"
                     onClick={() => {
@@ -318,7 +319,8 @@ const EventCalnderSection = () => {
                       <div className="opacity-0">3</div>
                       <div className="flex justify-end mt-4 -translate-y-2">
                         <button className="flex items-center bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-yellow-500 transition">
-                          <span className="ml-2">←</span> تفاصيل
+                          تفاصيل
+                          <FaArrowLeft className="translate-y-1 mx-2" />
                         </button>
                       </div>
                     </div>
